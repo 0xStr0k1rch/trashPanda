@@ -5,14 +5,13 @@
 / . || | || ' ' || . \[_-|  | |  / ._]| '_] | | || || | |/ ._]| '_]  |[[[|        
 \___| \__||_|_|_||  _//__/  |_|  \___.|_|   |___/|_||__/ \___.|_|    '---'
                  |_|                                                    
-							Happy Diving!
+ 							     Happy Diving!
 ```
 														 
-dumpsterDiver is a basic tooling/ps-script written by GPT and a coding newb (me) to
-perform crawling in a microsoft AD enviroment to find interesting files, configs and whatnot.
-It searches for regexp strings specified within the script. 
-
-
+dumpsterDiver is a basic tooling/ps-script written by GPT and a coding newb (me) for newer verisons on Powershell
+to perform crawling in a microsoft AD enviroment to find interesting files, configs and whatnot.
+It searches for regexp strings specified within the script so be happy to change the preset to
+fit your needs!. The tooling is intended to be used by cybersecurity professionals.
 
 **Installation Powershell**
 ```
@@ -30,7 +29,7 @@ like this
 \\files.contoso.net\share2$
 \\secrets.contoso.net\share1$
 
-Then change the $domainAdmins variablefrom '(example1|example2)' to your specific needs. Specify what domainadmins you want to look for.
+Then change the $domainAdmins variable from '(example1|example2)' to your specific needs. Specify what domainadmins you want to look for.
 You can fetch the the actual targets by running this command.
 ```
 (Get-ADGroupMember -Identity "Domain Admins" -Recursive | Get-ADUser | Select-Object -ExpandProperty SamAccountName) -join '|'
