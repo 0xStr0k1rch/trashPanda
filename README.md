@@ -8,7 +8,7 @@
 							Happy Diving!
 ```
 														 
-dumpsterDiver is a basic tooling/psscript written by GPT and a coding newb (me) to
+dumpsterDiver is a basic tooling/ps-script written by GPT and a coding newb (me) to
 perform crawling in a microsoft AD enviroment to find interesting files, configs and whatnot.
 It searches for regexp strings specified within the script. 
 
