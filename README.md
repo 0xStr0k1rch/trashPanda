@@ -23,11 +23,13 @@ Invoke-WebRequest https://raw.githubusercontent.com/0xStr0k1rch/dumpsterDiver/ma
 The tool was written to be used in conjunction with PingCastle and the -shares switch. PingCastle then outputs a file with all the shares
 like this
 
+```
 \\dc.contoso.net\share
 \\dc.contoso.net\share1
 \\files.contoso.net\share1$
 \\files.contoso.net\share2$
 \\secrets.contoso.net\share1$
+```
 
 Then change the $domainAdmins variable from '(example1|example2)' to your specific needs. Specify what domainadmins you want to look for.
 You can fetch the the actual targets by running this command.
