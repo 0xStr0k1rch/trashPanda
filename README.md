@@ -22,8 +22,8 @@ Invoke-WebRequest https://raw.githubusercontent.com/0xStr0k1rch/dumpsterDiver/ma
 
 **Usage**
 
-The tool was written to be used in conjunction with PingCastle and the -shares switch. PingCastle then outputs a file with all the shares
-like this
+The tool was written to be used in conjunction with PingCastle and the -shares switch. PingCastle then outputs a file with all the shares. 
+you can ofcourse use your own list however it should look like this.
 
 ```
 \\dc.contoso.net\share
