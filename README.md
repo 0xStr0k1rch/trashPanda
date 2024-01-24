@@ -13,6 +13,8 @@ to perform crawling in a microsoft AD enviroment to find interesting files, conf
 It searches for regexp strings specified within the script so be happy to change the preset to
 fit your needs!. The tooling is intended to be used by cybersecurity professionals.
 
+It's a simpler version https://github.com/SnaffCon/Snaffler which can be used on a non domain-joined PC
+
 **Installation Powershell**
 ```
 Invoke-WebRequest https://raw.githubusercontent.com/0xStr0k1rch/dumpsterDiver/main/dumpsterDiver.ps1 -OutFile dumpsterDiver.ps1
@@ -41,6 +43,8 @@ Then run the script with
 .\dumpsterDiver.ps1 "C:\Path\To\Your\ShareList.txt"
 ```
 The script will output logfiles with all it's findings in the same location that your sharelist file is.
+
+![image](https://github.com/0xStr0k1rch/dumpsterDiver/assets/130508141/90477626-9143-4558-8b60-699cc3b0e441)
 
 Happy Diving!
 @str0k1rch
