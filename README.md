@@ -38,7 +38,7 @@ You can fetch the the actual targets by running this command.
 ```
 (Get-ADGroupMember -Identity "Domain Admins" -Recursive | Get-ADUser | Select-Object -ExpandProperty SamAccountName) -join '|'
 ```
-Then run the script with 
+Then run the script with, the script will prompt you for credentials to be used
 ```
 .\dumpsterDiver.ps1 "C:\Path\To\Your\ShareList.txt"
 ```
