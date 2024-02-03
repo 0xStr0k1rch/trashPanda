@@ -1,4 +1,5 @@
 # dumpsterDiver
+
 ```
    _                         _               ___  _                  ==^==
  _| | _ _  _ _ _  ___  ___ _| |_  ___  _ _  | . \[_] _ _  ___  _ _   |[[[|
@@ -26,11 +27,11 @@ The tool was written to be used in conjunction with PingCastle and the -shares s
 you can ofcourse use your own list however it should look like this.
 
 ```
-\\dc.contoso.net\share
-\\dc.contoso.net\share1
-\\files.contoso.net\share1$
-\\files.contoso.net\share2$
-\\secrets.contoso.net\share1$
+\\dc.contoso.local\share1
+\\dc.contoso.local\share2
+\\files.contoso.local\share1$
+\\files.contoso.local\share2$
+\\secrets.contoso.local\share1$
 ```
 
 Then change the $domainAdmins variable from '(example1|example2)' to your specific needs. Specify what domainadmins you want to look for.
