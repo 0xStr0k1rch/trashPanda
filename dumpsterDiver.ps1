@@ -6,24 +6,33 @@ param (
 
 # Check if $shareListFile is provided
 if (-not $shareListFile) {
+    Write-Host  "   _                         _              ___  _                 ==^==" -ForegroundColor Green
+    Write-Host  " _| | _ _  _ _ _  ___  ___ _| |_  ___  _ _ | . \[_] _ _  ___  _ _  |[[[|" -ForegroundColor Green
+    Write-Host  "/ . || | || ' ' || . \[_- | | |  / ._]| '_]| | || || | |/ ._]| '_] |[[[|" -ForegroundColor Green
+    Write-Host  "\___| \__||_|_|_||  _//__/  |_|  \___.|_|  |___/|_||__/ \___.|_|   '---'" -ForegroundColor Green
+    Write-Host  "                 |_|                                                    " -ForegroundColor Green
+    Write-Host  "                                         Happy Diving!       by Certezza" -ForegroundColor Yellow
+    Write-Host "" -ForegroundColor Red
     Write-Host "No sharelist found" -ForegroundColor Red
     Write-Host 'Example: .\dumpsterDiver.ps1 "C:\Path\To\Your\ShareList.txt"' -ForegroundColor Green
     Write-Host 'list example:' -ForegroundColor Yellow
     Write-Host '\\dc.contoso.net\share' -ForegroundColor Yellow
     Write-Host '\\files.contoso.net\share1$' -ForegroundColor Yellow
     Write-Host '\\files.contoso.net\share2$' -ForegroundColor Yellow
-    Write-Host ''
+    Write-Host 'C:\' -ForegroundColor Yellow
+    Write-Host 'D:\' -ForegroundColor Yellow
+    Write-Host 'etc.. etc..'
     Exit
 }
 
 $loggFile = $shareListFile
 
 # Define the regex pattern for search
-$searchStringPattern = '(([sS]ql( |)(-sa|sa))|[aA]dmin|key=|[pP]assword|[pP]wd=|[cC]onnection[sS]tring(s|)=|[lL]ösenord|[sS]ecret|[uU]sername=)'
-$domainAdmins = '(example1|example2)'
+$searchStringPattern = '(([sS]ql( |)(-sa|sa))|[aA]dmin|key=|[pP]assword|[pP]wd=|[cC]onnection[sS]tring(s|)=|[lL]ösenord|[sS]ecret|[uU]sername=|-----BEGIN( RSA|) PRIVATE KEY-----)'
+$domainAdmins = '(admin1|admin2)'
 
 # Define the regex pattern for exclusion (e.g., exclude DLLs and EXEs)
-$excludeFilePattern = '\.(dll|exe|gdl|htm|xcf|qvd|xcp|msi|gitkeep|log|css|iso|adml)'
+$excludeFilePattern = '\.(dll|exe|gdl|htm|xcf|qvd|xcp|msi|gitkeep|log|css|iso|adml)$|7177'
 $includeFilePattern = '\.(vhd(x|)|config|cfg|git|kdb|kdbx|db|py|env|properties|pem|yaml|ts|key|pfx|ppk)'
 
 # Get credentials for accessing the network shares
@@ -34,15 +43,15 @@ $networkShares = Get-Content -Path $shareListFile
 
 Write-Host  "   _                         _              ___  _                 ==^==" -ForegroundColor Green
 Write-Host  " _| | _ _  _ _ _  ___  ___ _| |_  ___  _ _ | . \[_] _ _  ___  _ _  |[[[|" -ForegroundColor Green
-Write-Host  "/ . || | || ' ' || . \[_-|  | |  / ._]| '_]| | || || | |/ ._]| '_] |[[[|" -ForegroundColor Green
+Write-Host  "/ . || | || ' ' || . \[_- | | |  / ._]| '_]| | || || | |/ ._]| '_] |[[[|" -ForegroundColor Green
 Write-Host  "\___| \__||_|_|_||  _//__/  |_|  \___.|_|  |___/|_||__/ \___.|_|   '---'" -ForegroundColor Green
 Write-Host  "                 |_|                                                    " -ForegroundColor Green
-Write-Host  "                                      Happy Diving!       by str0k1rch" -ForegroundColor Yellow
+Write-Host  "                                         Happy Diving!       by Certezza" -ForegroundColor Yellow
 Write-Host ""
 Write-Host ""
-Write-Host "Searching Admins: $domainAdmins" -ForegroundColor Blue
-Write-Host "Files including: $searchStringPattern" -ForegroundColor Blue
-Write-Host "Seperately logging: $includeFilePattern" -ForegroundColor Blue
+Write-Host "Searching Admins: $domainAdmins" -ForegroundColor Red
+Write-Host "regEx including: $searchStringPattern" -ForegroundColor Blue
+Write-Host "Seperately logging: $includeFilePattern" -ForegroundColor Green
 Write-Host "Logging to: $shareListFile.log and $shareListFile.files.log" -ForegroundColor Blue
 Write-Host "To modify the strings, just edit the script" -ForegroundColor Green
 Write-Host "__________________________________________________________________________"
@@ -54,7 +63,7 @@ function Get-ContextAroundMatch {
     param (
         [string]$content,
         [string]$matchValue,
-        [int]$contextLength = 25
+        [int]$contextLength = 40
     )
 
     $startIndex = $content.IndexOf($matchValue)
@@ -89,7 +98,7 @@ foreach ($share in $networkShares) {
                     }  
                     $_.PSIsContainer -eq $false -and
                     $_.Extension -notmatch  $excludeFilePattern -and
-                    $_.Length -lt 300MB -and # Set a limit in bytes, adjust as needed
+                    $_.Length -lt 200MB -and # Set a limit in bytes, adjust as needed
                     $_.Length -ne 0
                 } |
                 ForEach-Object {
@@ -100,9 +109,7 @@ foreach ($share in $networkShares) {
                     $matches = [regex]::Matches($fileContent, $searchStringPattern)
                     $domainAdminMatches = [regex]::Matches($fileContent, $domainAdmins)
 
-                    $combinedMatches = @($matches, $domainAdminMatches)
-
-                    foreach ($match in $combinedMatches) {
+                    foreach ($match in $matches) {
                         $context = Get-ContextAroundMatch -content $fileContent -matchValue $match.Value
                         Write-Host "$($_.FullName)" -ForegroundColor Yellow
                         Write-Host "$context" -ForegroundColor Blue
@@ -111,7 +118,20 @@ foreach ($share in $networkShares) {
                         echo "$context" >> "$shareListFile.log"
                         echo "-------------------" >> "$shareListFile.log"
                         break
-                        }
+                    }
+                    
+                    foreach ($match in $domainAdminMatches) {
+                        $context = Get-ContextAroundMatch -content $fileContent -matchValue $match.Value
+                        Write-Host "$($_.FullName)" -ForegroundColor Yellow
+                        Write-Host "Domain Admin reference found!" -ForegroundColor Red
+                        Write-Host "$context" -ForegroundColor Blue
+                        echo "$($_.FullName)" >> "$shareListFile.log"
+                        echo "--------File content-----------" >> "$shareListFile.log"
+                        echo "DA reference found!" >> "$shareListFile.log"
+                        echo "$context" >> "$shareListFile.log"
+                        echo "-------------------" >> "$shareListFile.log"
+                        break
+                    }
                     }
                 }
         } else {
