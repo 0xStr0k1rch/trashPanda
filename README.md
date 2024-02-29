@@ -1,4 +1,11 @@
-### dumpsterDiver
+```
+   _                         _               ___  _                  ==^==
+ _| | _ _  _ _ _  ___  ___ _| |_  ___  _ _  | . \[_] _ _  ___  _ _   |[[[|
+/ . || | || ' ' || . \[_-|  | |  / ._]| '_] | | || || | |/ ._]| '_]  |[[[|        
+\___| \__||_|_|_||  _//__/  |_|  \___.|_|   |___/|_||__/ \___.|_|    '---'
+                 |_|                                                    
+ 							     Happy Diving!
+```
 
 dumpsterDiver is a basic tooling/ps-script written by GPT and a coding newb (me) for newer verisons on Powershell.
 it's purpose perform crawling in a microsoft AD enviroment to find interesting files, configs and whatnot.
