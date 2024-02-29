@@ -40,17 +40,15 @@ The script will output logfiles with all it's findings in the same location that
 
 How does it look?
 ![image](https://github.com/0xStr0k1rch/dumpsterDiver/assets/130508141/912ac159-82ba-482a-8509-379f180ac859)
+```
 GREEN = Interesting files
-
-YELLOW = File with searchsting Match
-
-BLUE = Content of the file
-
+YELLOW = File match with $searchString Match
+BLUE = Content of the file marked above
 RED = flags for a match with $domainAdmins
+```
 
 ![image](https://github.com/0xStr0k1rch/dumpsterDiver/assets/130508141/90477626-9143-4558-8b60-699cc3b0e441)
 
 Happy Diving!
 @str0k1rch
-
 
