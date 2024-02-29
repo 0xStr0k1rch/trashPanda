@@ -36,8 +36,8 @@ C:\
 D:\
 ```
 
-Then change the $domainAdmins variable from '(example1|example2)' to your specific needs. Specify what domainadmins you want to look for.
-You can fetch the the actual targets by running this command.
+Then change the $domainAdmins variable from '(admin1|admin2)' to specify what domainadmins you want to look for.
+You can fetch the the actual targets by running this command below. Put the output withing the parenthesis separated by a | pipe
 ```
 (Get-ADGroupMember -Identity "Domain Admins" -Recursive | Get-ADUser | Select-Object -ExpandProperty SamAccountName) -join '|'
 ```
