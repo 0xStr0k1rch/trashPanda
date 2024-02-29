@@ -14,7 +14,7 @@ to perform crawling in a microsoft AD enviroment to find interesting files, conf
 It searches for regexp strings specified within the script so be happy to change the preset to
 fit your needs!. The tooling is intended to be used by cybersecurity professionals.
 
-It's a simpler version https://github.com/SnaffCon/Snaffler which can be used on a non domain-joined PC
+It's a simpler version https://github.com/SnaffCon/Snaffler which can be used on a non domain-joined PC which Snaffler requires..
 
 **Installation Powershell**
 ```
@@ -32,6 +32,8 @@ you can ofcourse use your own list however it should look like this.
 \\files.contoso.local\share1$
 \\files.contoso.local\share2$
 \\secrets.contoso.local\share1$
+C:\
+D:\
 ```
 
 Then change the $domainAdmins variable from '(example1|example2)' to your specific needs. Specify what domainadmins you want to look for.
