@@ -26,10 +26,9 @@ if (-not $shareListFile) {
 }
 
 $loggFile = $shareListFile
-
 # Define the regex pattern for search
 $searchStringPattern = '(([sS]ql( |)(-sa|sa))|[aA]dmin|key=|[pP]assword|[pP]wd=|[cC]onnection[sS]tring(s|)=|[lL]ösenord|[sS]ecret|[uU]sername=|-----BEGIN( RSA|) PRIVATE KEY-----)'
-$domainAdmins = '(admin1|admin2)'
+$domainAdmins = '(admin1|admin2|admin3|admin4)'
 
 # Define the regex pattern for exclusion (e.g., exclude DLLs and EXEs)
 $excludeFilePattern = '\.(dll|exe|gdl|htm|xcf|qvd|xcp|msi|gitkeep|log|css|iso|adml)$|7177'
@@ -56,7 +55,8 @@ Write-Host "Logging to: $shareListFile.log and $shareListFile.files.log" -Foregr
 Write-Host "To modify the strings, just edit the script" -ForegroundColor Green
 Write-Host "__________________________________________________________________________"
 Write-Host ""
-
+Write-Host ""
+Write-Host ""
 
 # Function to extract context around a match
 function Get-ContextAroundMatch {
