@@ -11,7 +11,7 @@ if (-not $shareListFile) {
     Write-Host  "/ . || | || ' ' || . \[_- | | |  / ._]| '_]| | || || | |/ ._]| '_] |[[[|" -ForegroundColor Green
     Write-Host  "\___| \__||_|_|_||  _//__/  |_|  \___.|_|  |___/|_||__/ \___.|_|   '---'" -ForegroundColor Green
     Write-Host  "                 |_|                                                    " -ForegroundColor Green
-    Write-Host  "                                         Happy Diving!       by Certezza" -ForegroundColor Yellow
+    Write-Host  "                                                           Happy Diving!" -ForegroundColor Yellow
     Write-Host "" -ForegroundColor Red
     Write-Host "No sharelist found" -ForegroundColor Red
     Write-Host 'Example: .\dumpsterDiver.ps1 "C:\Path\To\Your\ShareList.txt"' -ForegroundColor Green
@@ -46,7 +46,7 @@ Write-Host  " _| | _ _  _ _ _  ___  ___ _| |_  ___  _ _ | . \[_] _ _  ___  _ _  
 Write-Host  "/ . || | || ' ' || . \[_- | | |  / ._]| '_]| | || || | |/ ._]| '_] |[[[|" -ForegroundColor Green
 Write-Host  "\___| \__||_|_|_||  _//__/  |_|  \___.|_|  |___/|_||__/ \___.|_|   '---'" -ForegroundColor Green
 Write-Host  "                 |_|                                                    " -ForegroundColor Green
-Write-Host  "                                         Happy Diving!       by Certezza" -ForegroundColor Yellow
+Write-Host  "                                                           Happy Diving!" -ForegroundColor Yellow
 Write-Host ""
 Write-Host ""
 Write-Host "Searching Admins: $domainAdmins" -ForegroundColor Red
