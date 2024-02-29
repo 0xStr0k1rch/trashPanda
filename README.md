@@ -1,14 +1,5 @@
-# dumpsterDiver
+### dumpsterDiver
 
-```
-   _                         _               ___  _                  ==^==
- _| | _ _  _ _ _  ___  ___ _| |_  ___  _ _  | . \[_] _ _  ___  _ _   |[[[|
-/ . || | || ' ' || . \[_-|  | |  / ._]| '_] | | || || | |/ ._]| '_]  |[[[|        
-\___| \__||_|_|_||  _//__/  |_|  \___.|_|   |___/|_||__/ \___.|_|    '---'
-                 |_|                                                    
- 							     Happy Diving!
-```
-														 
 dumpsterDiver is a basic tooling/ps-script written by GPT and a coding newb (me) for newer verisons on Powershell.
 it's purpose perform crawling in a microsoft AD enviroment to find interesting files, configs and whatnot.
 It searches for RegExp strings specified within the script so be happy to change the preset to
@@ -46,6 +37,16 @@ Then run the script with, the script will prompt you for credentials to be used
 .\dumpsterDiver.ps1 "C:\Path\To\Your\ShareList.txt"
 ```
 The script will output logfiles with all it's findings in the same location that your sharelist file is.
+
+How does it look?
+![image](https://github.com/0xStr0k1rch/dumpsterDiver/assets/130508141/912ac159-82ba-482a-8509-379f180ac859)
+GREEN = Interesting files
+
+YELLOW = File with searchsting Match
+
+BLUE = Content of the file
+
+RED = flags for a match with $domainAdmins
 
 ![image](https://github.com/0xStr0k1rch/dumpsterDiver/assets/130508141/90477626-9143-4558-8b60-699cc3b0e441)
 
