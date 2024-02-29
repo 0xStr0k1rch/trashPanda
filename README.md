@@ -9,10 +9,10 @@
  							     Happy Diving!
 ```
 														 
-dumpsterDiver is a basic tooling/ps-script written by GPT and a coding newb (me) for newer verisons on Powershell
-to perform crawling in a microsoft AD enviroment to find interesting files, configs and whatnot.
-It searches for regexp strings specified within the script so be happy to change the preset to
-fit your needs!. The tooling is intended to be used by cybersecurity professionals.
+dumpsterDiver is a basic tooling/ps-script written by GPT and a coding newb (me) for newer verisons on Powershell.
+it's purpose perform crawling in a microsoft AD enviroment to find interesting files, configs and whatnot.
+It searches for RegExp strings specified within the script so be happy to change the preset to
+fit your needs!. The tooling is intended to be used by cybersecurity professionals, Blue-Teamers and Red-Teamers alike.
 
 It's a simpler version https://github.com/SnaffCon/Snaffler which can be used on a non domain-joined PC which Snaffler requires..
 
