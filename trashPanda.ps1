@@ -1,5 +1,5 @@
 
-function Get-ddBanner {
+function Get-tpBanner {
 Write-Host "
                                                                       ^...^
  ______  ____    ____  _____ __ __  ____   ____  ____   ___     ____ <_* *_>
@@ -19,7 +19,7 @@ param (
 
 # Check if $shareListFile is provided
 if (-not $shareListFile) {
-    Get-ddBanner
+    Get-tpBanner
     Write-Host ""
     Write-Host "No sharelist found" -ForegroundColor Red
     Write-Host 'Example: .\dumpsterDiver.ps1 "C:\Path\To\Your\ShareList.txt"' -ForegroundColor Green
@@ -48,7 +48,7 @@ $credentials = Get-Credential
 # Read the list of network shares from the file
 $networkShares = Get-Content -Path $shareListFile
 
-Get-ddBanner
+Get-tpBanner
 Write-Host ""
 Write-Host ""
 Write-Host "Searching Admins: $domainAdmins" -ForegroundColor Red
