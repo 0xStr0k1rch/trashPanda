@@ -1,18 +1,26 @@
+
+function Get-ddBanner {
+Write-Host "
+                                                                      ^...^
+ ______  ____    ____  _____ __ __  ____   ____  ____   ___     ____ <_* *_>
+|      ||    \  /    |/ ___/|  |  ||    \ /    ||    \ |   \   /    | ¨\_/¨==^== 
+|      ||  D  )|  o  (   \_ |  |  ||  o  )  o  ||  _  ||    \ |  o  |==^== |[[[|
+|_|  |_||    / |     |\__  ||  _  ||   _/|     ||  |  ||  D  ||     ||[[[| |[[[|
+  |  |  |    \ |  _  |/  \ ||  |  ||  |  |  _  ||  |  ||     ||  _  ||[[[| |[[[|
+  |__|  |__|\_||__|__| \___||__|__||__|  |__|__||__|__||_____||__|__|'---' '---'" -ForegroundColor Green
+Write-Host "                                               Happy Dumpster Diving! @str0k1rch" -ForegroundColor Cyan
+}
+
 # Define the path to the file containing the list of network shares
-#$shareListFile = "C:\Path\To\Your\ShareList.txt"
+$shareListFile = "C:\Path\To\Your\ShareList.txt"
 param (
     [string]$shareListFile
 )
 
 # Check if $shareListFile is provided
 if (-not $shareListFile) {
-    Write-Host  "   _                         _              ___  _                 ==^==" -ForegroundColor Green
-    Write-Host  " _| | _ _  _ _ _  ___  ___ _| |_  ___  _ _ | . \[_] _ _  ___  _ _  |[[[|" -ForegroundColor Green
-    Write-Host  "/ . || | || ' ' || . \[_- | | |  / ._]| '_]| | || || | |/ ._]| '_] |[[[|" -ForegroundColor Green
-    Write-Host  "\___| \__||_|_|_||  _//__/  |_|  \___.|_|  |___/|_||__/ \___.|_|   '---'" -ForegroundColor Green
-    Write-Host  "                 |_|                                                    " -ForegroundColor Green
-    Write-Host  "                                                           Happy Diving!" -ForegroundColor Yellow
-    Write-Host "" -ForegroundColor Red
+    Get-ddBanner
+    Write-Host ""
     Write-Host "No sharelist found" -ForegroundColor Red
     Write-Host 'Example: .\dumpsterDiver.ps1 "C:\Path\To\Your\ShareList.txt"' -ForegroundColor Green
     Write-Host 'list example:' -ForegroundColor Yellow
@@ -40,12 +48,7 @@ $credentials = Get-Credential
 # Read the list of network shares from the file
 $networkShares = Get-Content -Path $shareListFile
 
-Write-Host  "   _                         _              ___  _                 ==^==" -ForegroundColor Green
-Write-Host  " _| | _ _  _ _ _  ___  ___ _| |_  ___  _ _ | . \[_] _ _  ___  _ _  |[[[|" -ForegroundColor Green
-Write-Host  "/ . || | || ' ' || . \[_- | | |  / ._]| '_]| | || || | |/ ._]| '_] |[[[|" -ForegroundColor Green
-Write-Host  "\___| \__||_|_|_||  _//__/  |_|  \___.|_|  |___/|_||__/ \___.|_|   '---'" -ForegroundColor Green
-Write-Host  "                 |_|                                                    " -ForegroundColor Green
-Write-Host  "                                                           Happy Diving!" -ForegroundColor Yellow
+Get-ddBanner
 Write-Host ""
 Write-Host ""
 Write-Host "Searching Admins: $domainAdmins" -ForegroundColor Red
@@ -54,7 +57,6 @@ Write-Host "Seperately logging: $includeFilePattern" -ForegroundColor Green
 Write-Host "Logging to: $shareListFile.log and $shareListFile.files.log" -ForegroundColor Blue
 Write-Host "To modify the strings, just edit the script" -ForegroundColor Green
 Write-Host "__________________________________________________________________________"
-Write-Host ""
 Write-Host ""
 Write-Host ""
 
