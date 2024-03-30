@@ -56,7 +56,9 @@ BLUE = Content of the file marked above
 RED = flags for a match with $domainAdmins
 ```
 
-![image](https://github.com/0xStr0k1rch/trashPanda/assets/130508141/90477626-9143-4558-8b60-699cc3b0e441)
+![bild](https://github.com/0xStr0k1rch/trashPanda/assets/130508141/38f10575-738c-4318-8b2d-39f7a2a7af7c)
+
+
 
 Happy Diving!
 @str0k1rch
