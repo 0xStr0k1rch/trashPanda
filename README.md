@@ -48,7 +48,7 @@ Then run the script with, the script will prompt you for credentials to be used
 The script will output logfiles with all it's findings in the same location that your sharelist file is.
 
 How does it look?
-![image](https://github.com/0xStr0k1rch/trashPanda/assets/130508141/912ac159-82ba-482a-8509-379f180ac859)
+![bild](https://github.com/0xStr0k1rch/trashPanda/assets/130508141/2c812186-3ca9-4326-8db1-7f725f2b7259)
 ```
 GREEN = Interesting files
 YELLOW = File match with $searchString Match
