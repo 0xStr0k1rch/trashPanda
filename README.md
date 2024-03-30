@@ -55,10 +55,7 @@ YELLOW = File match with $searchString Match
 BLUE = Content of the file marked above
 RED = flags for a match with $domainAdmins
 ```
-
-![bild](https://github.com/0xStr0k1rch/trashPanda/assets/130508141/38f10575-738c-4318-8b2d-39f7a2a7af7c)
-
-
+![bild](https://github.com/0xStr0k1rch/trashPanda/assets/130508141/61e73cac-9807-4d30-b517-dec9d7810f7b)
 
 Happy Diving!
 @str0k1rch
