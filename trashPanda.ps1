@@ -1,4 +1,11 @@
+#trashPanda version 1.0 by str0k1rch
+#2024-03-30
 
+# Define the path to the file containing the list of network shares
+param (
+    [string]$shareListFile
+)
+#ascii banner
 function Get-tpBanner {
 Write-Host "
                                                                       ^...^
@@ -11,13 +18,7 @@ Write-Host "
 Write-Host "                                               Happy Dumpster Diving! @str0k1rch" -ForegroundColor Cyan
 }
 
-# Define the path to the file containing the list of network shares
-$shareListFile = "C:\Path\To\Your\ShareList.txt"
-param (
-    [string]$shareListFile
-)
-
-# Check if $shareListFile is provided
+# Check if $shareListFile string is provided
 if (-not $shareListFile) {
     Get-tpBanner
     Write-Host ""
@@ -33,14 +34,13 @@ if (-not $shareListFile) {
     Exit
 }
 
-$loggFile = $shareListFile
 # Define the regex pattern for search
 $searchStringPattern = '(([sS]ql( |)(-sa|sa))|[aA]dmin|key=|[pP]assword|[pP]wd=|[cC]onnection[sS]tring(s|)=|[lL]ösenord|[lL]ösen|[pP]assord|[dD]okumentation|[sS]ecret|[uU]sername=|-----BEGIN( RSA|) PRIVATE KEY-----)'
 $domainAdmins = '(admin1|admin2|admin3|admin4)'
+$includeFilePattern = '\.(vhd(x|)|config|cfg|git|kdb|kdbx|db|py|env|properties|pem|yaml|ts|key|pfx|ppk)'
 
 # Define the regex pattern for exclusion (e.g., exclude DLLs and EXEs)
-$excludeFilePattern = '\.(dll|exe|gdl|htm|xcf|qvd|xcp|msi|gitkeep|log|css|iso|adml)$|7177'
-$includeFilePattern = '\.(vhd(x|)|config|cfg|git|kdb|kdbx|db|py|env|properties|pem|yaml|ts|key|pfx|ppk)'
+$excludeFilePattern = '\.(dll|exe|gdl|htm|xcf|qvd|xcp|msi|gitkeep|log|css|iso|adml)$'
 
 # Get credentials for accessing the network shares
 $credentials = Get-Credential
