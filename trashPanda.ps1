@@ -35,7 +35,7 @@ if (-not $shareListFile) {
 
 $loggFile = $shareListFile
 # Define the regex pattern for search
-$searchStringPattern = '(([sS]ql( |)(-sa|sa))|[aA]dmin|key=|[pP]assword|[pP]wd=|[cC]onnection[sS]tring(s|)=|[lL]ösenord|[sS]ecret|[uU]sername=|-----BEGIN( RSA|) PRIVATE KEY-----)'
+$searchStringPattern = '(([sS]ql( |)(-sa|sa))|[aA]dmin|key=|[pP]assword|[pP]wd=|[cC]onnection[sS]tring(s|)=|[lL]ösenord|[lL]ösen|[pP]assord|[dD]okumentation|[sS]ecret|[uU]sername=|-----BEGIN( RSA|) PRIVATE KEY-----)'
 $domainAdmins = '(admin1|admin2|admin3|admin4)'
 
 # Define the regex pattern for exclusion (e.g., exclude DLLs and EXEs)
