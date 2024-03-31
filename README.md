@@ -43,7 +43,7 @@ Put the output within the single-quotes with each user separated by a | pipe.
 ```
 (Get-ADGroupMember -Identity "Domain Admins" -Recursive | Get-ADUser | Select-Object -ExpandProperty SamAccountName) -join '|'
 ```
-To run run the script wit. The script will prompt you for credentials to be used
+Run the script with, it will then prompt you for the credentials to be used
 ```
 .\trashPanda.ps1 "C:\Path\To\Your\ShareList.txt"
 ```
