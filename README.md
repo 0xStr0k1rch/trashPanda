@@ -9,10 +9,10 @@
                                                Happy Dumpster Diving! @str0k1rch
 ```
 
-trashPanda is a basic tooling/ps-script written by GPT and a coding newb (me) for newer verisons on Powershell.
+trashPanda is a basic tooling/ps-scripd written for newer verisons on Powershell.
 it's purpose perform crawling in a microsoft AD and local-PC enviroment to find interesting files, configs and whatnot.
 It searches for RegExp strings specified within the script so be happy to change the preset to
-fit your needs!. The tooling is intended to be used by cybersecurity professionals, Blue-Teamers and Red-Teamers alike.
+fit your needs!. The tooling is intended to be used by cybersecurity professionals, Blue teamers and Red teamers alike.
 
 It's a simpler version https://github.com/SnaffCon/Snaffler which can be used even on a non domain-joined PC which Snaffler requires..
 
@@ -23,8 +23,8 @@ Invoke-WebRequest https://raw.githubusercontent.com/0xStr0k1rch/trashPanda/main/
 
 **Usage**
 
-The tool was written to be used in conjunction with PingCastle and the -shares switch. PingCastle then outputs a file with all the shares. 
-you can ofcourse use your own list however it should look like this.
+This tool was written to be used in conjunction with PingCastle and the -shares switch. But any other AD share enumeration work fine aswell. 
+The structure of the shares file is supposed to look like the example below.
 
 ```
 \\dc.contoso.local\share1
@@ -36,12 +36,13 @@ C:\
 D:\
 ```
 
-Then change the $domainAdmins variable from '(admin1|admin2)' to specify what domainadmins you want to look for.
-You can fetch the the actual targets by running this command below. Put the output withing the parenthesis separated by a | pipe
+Change the $domainAdmins variable from '(admin1|admin2)' to specify what domainadmins you want to look for.
+You can fetch the the actual targets by running this command below (if ActiveDirecotry module is present ofc).
+Put the output within the single-quotes with each user separated by a | pipe.
 ```
 (Get-ADGroupMember -Identity "Domain Admins" -Recursive | Get-ADUser | Select-Object -ExpandProperty SamAccountName) -join '|'
 ```
-Then run the script with, the script will prompt you for credentials to be used
+To run run the script wit. The script will prompt you for credentials to be used
 ```
 .\trashPanda.ps1 "C:\Path\To\Your\ShareList.txt"
 ```
