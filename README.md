@@ -15,6 +15,7 @@ It searches for RegExp strings specified within the script so be happy to change
 fit your needs!. The tooling is intended to be used by cybersecurity professionals, Blue teamers and Red teamers alike.
 
 It's a simpler version https://github.com/SnaffCon/Snaffler which can be used even on a non domain-joined PC which Snaffler requires..
+Perfect from an Windows attack host for example!
 
 **Installation Powershell**
 ```
