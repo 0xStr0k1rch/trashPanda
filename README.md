@@ -24,7 +24,7 @@ Invoke-WebRequest https://raw.githubusercontent.com/0xStr0k1rch/trashPanda/main/
 
 **Usage**
 
-This tool was written to be used in conjunction with PingCastle and the -shares switch. But any other AD share enumeration work fine aswell. 
+This tool was written to be used in conjunction with PingCastle and the -shares switch. Any other AD share enumeration work fine aswell. 
 The structure of the shares file is supposed to look like the example below.
 
 ```
