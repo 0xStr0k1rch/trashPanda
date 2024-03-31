@@ -38,7 +38,7 @@ D:\
 ```
 
 Change the $domainAdmins variable from '(admin1|admin2)' to specify what domainadmins you want to look for.
-You can fetch the the actual targets by running this command below (if ActiveDirecotry module is present ofc).
+You can fetch the the actual targets by running this command below (if ActiveDirectory module is present ofc).
 Put the output within the single-quotes with each user separated by a | pipe.
 ```
 (Get-ADGroupMember -Identity "Domain Admins" -Recursive | Get-ADUser | Select-Object -ExpandProperty SamAccountName) -join '|'
