@@ -35,9 +35,9 @@ if (-not $shareListFile) {
 }
 
 # Define the regex pattern for search, $searchStringPattern includes a bunch of swedish words which might not be usefull to you :)
-$searchStringPattern = '(([sS]ql( |)(-sa|sa))|[aA]dmin|key=|[pP]assword|[pP]wd=|[cC]onnection[sS]tring(s|)=|[lL]ösenord|[lL]ösen|[pP]assord|[dD]okumentation|[dD]ecapus|[sS]ecret|[uU]sername=|-----BEGIN( RSA|) PRIVATE KEY-----)'
+$searchStringPattern = '(([sS]ql( |)(-sa|sa))|[aA]dmin|key=|[pP]assword|[pP]wd=|[cC]onnection[sS]tring(s|)=|[lL][oö]senord|[lL][oö]sen|[pP]assord|[dD]okumentation|[dD]ecapus|[sS]ecret|[uU]sername=|-----BEGIN( RSA|) PRIVATE KEY-----)'
 $domainAdmins = '(admin1|admin2|admin3|admin4)'
-$includeFilePattern = '\.(vhd(x|)|config|cfg|git|kdb|kdbx|db|py|env|properties|pem|yaml|ts|key|pfx|ppk|rsa)'
+$includeFilePattern = '\.(vhd(x|)|config|cfg|git|kdb|kdbx|db|py|env|properties|pem|yaml|ts|key|pfx|ppk|rsa|rdm|rdp)'
 
 # Define the regex pattern for exclusion (e.g., exclude DLLs and EXEs)
 $excludeFilePattern = '\.(dll|exe|gdl|htm|xcf|qvd|xcp|msi|gitkeep|log|css|iso|adml)$'
