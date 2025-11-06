@@ -35,9 +35,9 @@ if (-not $shareListFile) {
 }
 
 # Define the regex pattern for search, $searchStringPattern includes a bunch of swedish words which might not be usefull to you :)
-$searchStringPattern = '(([sS]ql( |)(-sa|sa))|[aA]dmin|key=|[pP]assword|[pP]wd=|[cC]onnection[sS]tring(s|)=|[lL][oö]senord|[lL][oö]sen|[pP]assord|[dD]okumentation|[dD]ecapus|[sS]ecret|[uU]sername=|-----BEGIN( RSA|) PRIVATE KEY-----)'
+$searchStringPattern = '(([sS]ql( |)(-sa|sa))|[aA]dmin|key=|[pP]assword|[pP]wd=|[cC]onnection[sS]tring(s|)=|[lL][oö]senord|[lL][oö]sen|[pP]assord|m[rR]emote(|NG)|[dD]okumentation|[dD]ecapus|[sS]ecret|[uU]sername=|-----BEGIN( RSA|) PRIVATE KEY-----)'
 $domainAdmins = '(admin1|admin2|admin3|admin4)'
-$includeFilePattern = '\.(vhd(x|)|config|cfg|git|kdb|kdbx|db|py|env|properties|pem|yaml|ts|key|pfx|ppk|rsa|rdm|rdp)'
+$includeFilePattern = '\.(vhd(x|)|config|cfg|git|kdb|kdbx|db|py|env|properties|pem|yaml|ts|key|pfx|ppk|rsa|rdm|rdp|old)'
 
 # Define the regex pattern for exclusion (e.g., exclude DLLs and EXEs)
 $excludeFilePattern = '\.(dll|exe|gdl|htm|xcf|qvd|xcp|msi|gitkeep|log|css|iso|adml)$'
@@ -83,6 +83,7 @@ function Get-ContextAroundMatch {
 # Loop through each network share
 foreach ($share in $networkShares) {
     try {
+        Write-Host "Now trying to dig through: $share" -ForegroundColor Red 
         # Disconnect existing connections
         Get-PSDrive | Where-Object { $_.PSProvider -eq "FileSystem" -and $_.Root -like "$share*" } | Remove-PSDrive -Force
 
@@ -147,3 +148,4 @@ foreach ($share in $networkShares) {
         Remove-PSDrive -Name TempDrive -ErrorAction SilentlyContinue
     }
 }
+
